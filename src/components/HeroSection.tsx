@@ -35,7 +35,7 @@ const HeroSection = () => {
           </div>
           <div className="lg:w-2/5 flex justify-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg-subtle border border-primary/20 glow-shadow p-1.5">
-              <img src={profilePhoto} alt="Atiqur Rahman Asif" className="w-full h-full rounded-full object-cover object-top" />
+              <img src={profilePhoto} alt="Atiqur Rahman Asif" className="w-full h-full rounded-full object-cover object-center" />
             </div>
           </div>
         </div>
