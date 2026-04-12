@@ -24,7 +24,7 @@ const HeroSection = () => {
               <a href="#contact" className="px-8 py-3 gradient-bg rounded-full font-semibold text-sm text-primary-foreground glow-shadow hover:opacity-90 transition-opacity">
                 Let's Talk
               </a>
-              <a href="mailto:atiq.asif260@gmail.com" className="px-8 py-3 border border-border rounded-full font-semibold text-sm text-foreground hover:border-primary transition-colors">
+              <a href="/Atiq_Asif_CV.pdf" download className="px-8 py-3 border border-border rounded-full font-semibold text-sm text-foreground hover:border-primary transition-colors">
                 Download CV
               </a>
             </div>
