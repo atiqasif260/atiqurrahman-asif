@@ -34,8 +34,8 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="lg:w-2/5 flex justify-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <div className="w-64 h-80 md:w-72 md:h-96 rounded-2xl gradient-bg-subtle border border-primary/20 glow-shadow p-1.5">
-              <img src={profilePhoto} alt="Atiqur Rahman Asif" className="w-full h-full rounded-2xl object-cover object-center" />
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg-subtle border border-primary/20 glow-shadow p-1.5">
+              <img src={profilePhoto} alt="Atiqur Rahman Asif" className="w-full h-full rounded-full object-cover object-center" />
             </div>
           </div>
         </div>
