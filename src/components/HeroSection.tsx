@@ -1,5 +1,6 @@
 import { Mail, MapPin } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const HeroSection = () => {
   return (
@@ -33,10 +34,8 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="lg:w-2/5 flex justify-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg-subtle border border-primary/20 glow-shadow flex items-center justify-center">
-              <div className="w-56 h-56 md:w-72 md:h-72 rounded-full bg-secondary/50 border border-border/50 flex items-center justify-center">
-                <span className="text-6xl md:text-7xl font-extrabold gradient-text">AA</span>
-              </div>
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg-subtle border border-primary/20 glow-shadow p-1.5">
+              <img src={profilePhoto} alt="Atiqur Rahman Asif" className="w-full h-full rounded-full object-cover object-top" />
             </div>
           </div>
         </div>
