@@ -194,11 +194,9 @@ const AnimatedBackground = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none"
-      style={{ opacity: 0.7 }}
-    />
+    <div className="fixed inset-0 z-0 pointer-events-none" style={{ opacity: 0.7 }}>
+      <canvas ref={canvasRef} className="w-full h-full" />
+    </div>
   );
 };
 
