@@ -18,7 +18,7 @@ const HeroSection = () => {
               Asif
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-              IT Professional with 3+ years of experience in system administration, cybersecurity, and strategic IT planning. B.Tech in Computer Science & Engineering.
+              IT Professional & Marketing Strategist with 3+ years of experience in system administration, cybersecurity, SAP, and brand strategy. B.Tech in Computer Science & Engineering.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <a href="#contact" className="px-8 py-3 gradient-bg rounded-full font-semibold text-sm text-primary-foreground glow-shadow hover:opacity-90 transition-opacity">
