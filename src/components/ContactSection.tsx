@@ -1,4 +1,10 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+
+const socials = [
+  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/atiq.asif2" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/atiq.asif260/" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/atiqurrahman-asif/" },
+];
 
 const ContactSection = () => {
   return (
@@ -8,7 +14,7 @@ const ContactSection = () => {
         <p className="text-muted-foreground max-w-xl mx-auto mb-12">
           Interested in collaborating or have an opportunity? Feel free to reach out — I'd love to hear from you.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
           <a href="mailto:atiq.asif260@gmail.com" className="glass-card rounded-xl p-6 hover:border-primary/30 transition-colors group">
             <Mail size={24} className="text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
             <h3 className="font-semibold text-sm mb-1">Email</h3>
@@ -24,6 +30,22 @@ const ContactSection = () => {
             <h3 className="font-semibold text-sm mb-1">Location</h3>
             <p className="text-xs text-muted-foreground">Savar, Dhaka-1344</p>
           </div>
+        </div>
+
+        <h3 className="text-xl font-bold mb-6">Connect on <span className="gradient-text">Social Media</span></h3>
+        <div className="flex justify-center gap-4">
+          {socials.map(({ icon: Icon, label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full gradient-bg-subtle border border-primary/20 flex items-center justify-center hover:glow-shadow hover:border-primary/50 transition-all group"
+              aria-label={label}
+            >
+              <Icon size={20} className="text-primary group-hover:scale-110 transition-transform" />
+            </a>
+          ))}
         </div>
       </div>
     </section>
