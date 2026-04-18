@@ -32,7 +32,7 @@ const ContactSection = () => {
         </div>
 
         <h3 className="text-xl font-bold mb-6"><span className="gradient-text">Social Media</span></h3>
-        <div className="flex justify-center gap-4">
+        <div className="justify-center gap-4 flex flex-row">
           {socials.map(({ icon: Icon, label, href }) => (
             <a
               key={label}
