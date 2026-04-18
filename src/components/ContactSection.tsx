@@ -1,7 +1,6 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 
 const socials = [
-  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/atiq.asif2" },
   { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/atiq.asif260/" },
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/atiqurrahman-asif/" },
 ];
