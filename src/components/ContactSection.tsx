@@ -1,8 +1,9 @@
-import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, Github } from "lucide-react";
 
 const socials = [
   { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/atiq.asif260/" },
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/atiqurrahman-asif/" },
+  { icon: Github, label: "GitHub", href: "https://github.com/atiqasif260" },
 ];
 
 const ContactSection = () => {
