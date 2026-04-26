@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Instagram, Linkedin, Github } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const socials = [
   { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/atiq.asif260/" },
@@ -33,20 +34,26 @@ const ContactSection = () => {
         </div>
 
         <h3 className="text-xl font-bold mb-6"><span className="gradient-text">Social Media</span></h3>
-        <div className="justify-center gap-4 flex flex-row">
-          {socials.map(({ icon: Icon, label, href }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full gradient-bg-subtle border border-primary/20 flex items-center justify-center hover:glow-shadow hover:border-primary/50 transition-all group"
-              aria-label={label}
-            >
-              <Icon size={20} className="text-primary group-hover:scale-110 transition-transform" />
-            </a>
-          ))}
-        </div>
+        <TooltipProvider delayDuration={150}>
+          <div className="justify-center gap-4 flex flex-row">
+            {socials.map(({ icon: Icon, label, href }) => (
+              <Tooltip key={label}>
+                <TooltipTrigger asChild>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full gradient-bg-subtle border border-primary/20 flex items-center justify-center hover:glow-shadow hover:border-primary/50 transition-all group"
+                    aria-label={label}
+                  >
+                    <Icon size={20} className="text-primary group-hover:scale-110 transition-transform" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>{label}</TooltipContent>
+              </Tooltip>
+            ))}
+          </div>
+        </TooltipProvider>
       </div>
     </section>
   );
