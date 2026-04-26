@@ -20,7 +20,7 @@ const CertificationsSection = () => {
     <section id="certifications" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Certifications & <span className="gradient-text">Activities</span>
+          Certifications & <span className="gradient-text-animated">Activities</span>
         </h2>
         <div className="max-w-3xl mx-auto space-y-4">
           {certifications.map((cert) => (

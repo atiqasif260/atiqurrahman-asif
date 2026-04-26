@@ -20,7 +20,7 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Technical <span className="gradient-text">Skills</span></h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Technical <span className="gradient-text-animated">Skills</span></h2>
         <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">Computer & Technical Skills</p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-16">
           {technicalSkills.map(({ icon: Icon, label, desc }) => (
@@ -32,7 +32,7 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        <h3 className="text-2xl font-bold text-center mb-8">Professional <span className="gradient-text">Skills</span></h3>
+        <h3 className="text-2xl font-bold text-center mb-8">Professional <span className="gradient-text-animated">Skills</span></h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
           {professionalSkills.map(({ icon: Icon, label, desc }) => (
             <div key={label} className="glass-card rounded-xl p-6 text-center hover:border-primary/30 transition-colors group">

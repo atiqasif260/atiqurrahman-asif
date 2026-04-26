@@ -31,7 +31,7 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-24">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Professional <span className="gradient-text">Experience</span></h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Professional <span className="gradient-text-animated">Experience</span></h2>
         <div className="max-w-3xl mx-auto space-y-8">
           {experiences.map((exp) => (
             <div key={exp.company} className="glass-card rounded-xl p-8 hover:border-primary/30 transition-colors">

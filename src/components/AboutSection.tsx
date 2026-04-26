@@ -11,7 +11,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-24">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">About <span className="gradient-text">Me</span></h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">About <span className="gradient-text-animated">Me</span></h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-16">
           A dynamic and purposeful professional with 3+ years of combined experience in the IT Department. Blending ability in software engineering with a solid foundation in Marketing. Adept at bridging the gap between technical development & brand strategy with a keen eye for innovation and user-focused solutions. Skilled at maintaining clear communication, cross-functional collaboration, and delivering high impact under pressure.
         </p>

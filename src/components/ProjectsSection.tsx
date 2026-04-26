@@ -18,7 +18,7 @@ const ProjectsSection = () => {
     <section id="projects" className="py-24">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          <span className="gradient-text">Projects</span>
+          <span className="gradient-text-animated">Projects</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {projects.map((project) => (

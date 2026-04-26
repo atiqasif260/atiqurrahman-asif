@@ -5,7 +5,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In <span className="gradient-text">Touch</span></h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In <span className="gradient-text-animated">Touch</span></h2>
         <p className="text-muted-foreground max-w-xl mx-auto mb-12">
           Interested in collaborating or have an opportunity? Feel free to reach out — I'd love to hear from you.
         </p>
