@@ -67,6 +67,19 @@
     background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
   }
 
+  .gradient-text-animated {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      120deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--accent)) 35%,
+      hsl(280 90% 65%) 65%,
+      hsl(var(--primary)) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+  }
+
   .gradient-bg {
     background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
   }
@@ -77,9 +90,106 @@
 
   .glass-card {
     @apply bg-card/50 backdrop-blur-sm border border-border/50;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+      border-color 0.4s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 0 0 1px hsl(var(--primary) / 0.3),
+      0 10px 40px -10px hsl(var(--primary) / 0.4),
+      0 0 60px -20px hsl(var(--accent) / 0.3);
   }
 
   .glow-shadow {
     box-shadow: 0 0 30px -5px hsl(var(--primary) / 0.25);
   }
+
+  .glow-shadow-strong {
+    box-shadow:
+      0 0 20px -2px hsl(var(--primary) / 0.5),
+      0 0 60px -10px hsl(var(--accent) / 0.35);
+  }
+
+  /* Animated conic gradient border for premium "AI" feel */
+  .ai-border {
+    position: relative;
+    isolation: isolate;
+  }
+  .ai-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      hsl(var(--primary) / 0.7),
+      hsl(var(--accent) / 0.4),
+      hsl(280 90% 65% / 0.6),
+      hsl(var(--primary) / 0.7)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    animation: ai-spin 6s linear infinite;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  /* Scanline shimmer overlay (subtle AI/HUD feel) */
+  .scanlines {
+    position: relative;
+  }
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 3px,
+      hsl(var(--primary) / 0.04) 3px,
+      hsl(var(--primary) / 0.04) 4px
+    );
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  .text-glow {
+    text-shadow:
+      0 0 20px hsl(var(--primary) / 0.45),
+      0 0 40px hsl(var(--accent) / 0.25);
+  }
 }
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes ai-spin {
+  to { --angle: 360deg; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
