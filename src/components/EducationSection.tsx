@@ -26,7 +26,7 @@ const EducationSection = () => {
     <section id="education" className="py-24">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          <span className="gradient-text">Education</span>
+          <span className="gradient-text-animated">Education</span>
         </h2>
         <div className="max-w-3xl mx-auto space-y-6">
           {education.map((edu) => (

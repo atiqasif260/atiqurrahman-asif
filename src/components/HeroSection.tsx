@@ -10,21 +10,25 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10 pt-24">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="lg:w-3/5 text-center lg:text-left animate-fade-in-up">
-            <p className="text-primary font-medium mb-3 tracking-widest text-sm uppercase">Hello, I'm</p>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-2">
+            <p className="text-primary font-medium mb-3 tracking-[0.3em] text-xs uppercase flex items-center gap-2 justify-center lg:justify-start">
+              <span className="inline-block w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary))] animate-pulse" />
+              Hello, I'm
+            </p>
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-2 text-glow">
               Atiqur Rahman
             </h1>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 gradient-text">
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 gradient-text-animated">
               Asif
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
               IT Professional & Marketing Strategist with 3+ years of experience in system administration, cybersecurity, SAP, and brand strategy. B.Tech in Computer Science & Engineering.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <a href="#contact" className="px-8 py-3 gradient-bg rounded-full font-semibold text-sm text-primary-foreground glow-shadow hover:opacity-90 transition-opacity">
-                Let's Talk
+              <a href="#contact" className="relative px-8 py-3 gradient-bg rounded-full font-semibold text-sm text-primary-foreground glow-shadow-strong hover:scale-105 hover:opacity-95 transition-all overflow-hidden group">
+                <span className="relative z-10">Let's Talk</span>
+                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
               </a>
-              <a href="/Atiq_Asif_CV.pdf" download className="px-8 py-3 border border-border rounded-full font-semibold text-sm text-foreground hover:border-primary transition-colors">
+              <a href="/Atiq_Asif_CV.pdf" download className="px-8 py-3 rounded-full font-semibold text-sm text-foreground border border-border hover:border-primary hover:shadow-[0_0_20px_-5px_hsl(var(--primary)/0.5)] transition-all">
                 Download CV
               </a>
             </div>
@@ -34,8 +38,12 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="lg:w-2/5 flex justify-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg-subtle border border-primary/20 glow-shadow p-1.5">
-              <img src={profilePhoto} alt="Atiqur Rahman Asif" className="w-full h-full rounded-full object-cover object-center" />
+            <div className="relative" style={{ animation: "float-slow 6s ease-in-out infinite" }}>
+              <span className="absolute inset-0 rounded-full border border-primary/40" style={{ animation: "pulse-ring 2.8s ease-out infinite" }} />
+              <span className="absolute inset-0 rounded-full border border-accent/30" style={{ animation: "pulse-ring 2.8s ease-out infinite", animationDelay: "1.4s" }} />
+              <div className="ai-border w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg-subtle glow-shadow-strong p-1.5">
+                <img src={profilePhoto} alt="Atiqur Rahman Asif" className="w-full h-full rounded-full object-cover object-center relative z-10" />
+              </div>
             </div>
           </div>
         </div>
