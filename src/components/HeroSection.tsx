@@ -28,7 +28,7 @@ const HeroSection = () => {
                 <span className="relative z-10">Let's Talk</span>
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
               </a>
-              <a href="#" className="px-8 py-3 rounded-full font-semibold text-sm text-foreground border border-border hover:border-primary hover:shadow-[0_0_20px_-5px_hsl(var(--primary)/0.5)] transition-all">
+              <a href="/Atiq_Asif_CV.pdf" download="Atiq_Asif_CV.pdf" className="px-8 py-3 rounded-full font-semibold text-sm text-foreground border border-border hover:border-primary hover:shadow-[0_0_20px_-5px_hsl(var(--primary)/0.5)] transition-all">
                 Download CV
               </a>
             </div>
