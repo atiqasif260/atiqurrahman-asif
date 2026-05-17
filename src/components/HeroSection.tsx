@@ -15,10 +15,8 @@ const HeroSection = () => {
               Hello, I'm
             </p>
             <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-2 text-glow">
-              Atiqur Rahman
-            </h1>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 gradient-text-animated">
-              Asif
+              Atiqur Rahman Asif
+              <span className="block text-3xl md:text-5xl mt-3 font-semibold gradient-text-animated">IT Professional & Marketing Strategist</span>
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
               IT Professional & Marketing Strategist with 3+ years of experience in system administration, cybersecurity, SAP, and brand strategy. B.Tech in Computer Science & Engineering.

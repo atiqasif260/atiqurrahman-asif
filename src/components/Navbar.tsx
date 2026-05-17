@@ -28,7 +28,7 @@ const Navbar = () => {
             Contact
           </a>
         </div>
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
+        <button aria-label="Open menu" className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
