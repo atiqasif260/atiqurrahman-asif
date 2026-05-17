@@ -1,0 +1,7 @@
+# Atiqur Rahman Asif — Portfolio
+
+> Personal portfolio of Atiqur Rahman Asif, an IT Professional and Marketing Strategist with 3+ years of experience in system administration, cybersecurity, SAP, and brand strategy.
+
+## Pages
+
+- [Home](/): Overview, about, experience, skills, projects, education, certifications, and contact information.
