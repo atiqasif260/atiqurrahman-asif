@@ -1,0 +1,4 @@
+project_id = "lddsmrmonowemkmkdnfq"
+
+[functions.gsc-performance]
+verify_jwt = false
