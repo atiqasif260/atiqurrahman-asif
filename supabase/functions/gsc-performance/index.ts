@@ -27,10 +27,14 @@ async function query(body: Record<string, unknown>, lovableKey: string, gscKey: 
   });
   const data = await res.json();
   if (!res.ok) {
-    throw new Error(`GSC ${res.status}: ${JSON.stringify(data)}`);
+    const err = new Error(`GSC ${res.status}: ${JSON.stringify(data)}`);
+    (err as Error & { statusCode?: number }).statusCode = res.status;
+    throw err;
   }
   return data;
 }
+
+const ALLOWED_DAYS = [7, 28, 90] as const;
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
@@ -41,8 +45,16 @@ Deno.serve(async (req) => {
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
     if (!GSC_KEY) throw new Error("GOOGLE_SEARCH_CONSOLE_API_KEY is not configured");
 
-    const { days = 28 } = await req.json().catch(() => ({}));
-    const startDate = daysAgo(Number(days));
+    const body = await req.json().catch(() => ({}));
+    const daysRaw = (body as { days?: unknown }).days ?? 28;
+    const days = Number(daysRaw);
+    if (!ALLOWED_DAYS.includes(days as (typeof ALLOWED_DAYS)[number])) {
+      return new Response(
+        JSON.stringify({ error: "Invalid 'days' value. Allowed: 7, 28, 90." }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+      );
+    }
+    const startDate = daysAgo(days);
     const endDate = daysAgo(1);
     const base = { startDate, endDate, rowLimit: 100 };
 
@@ -69,11 +81,11 @@ Deno.serve(async (req) => {
       { headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
   } catch (err) {
-    const message = err instanceof Error ? err.message : String(err);
-    console.error("gsc-performance error", message);
-    return new Response(JSON.stringify({ error: message }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    const detail = err instanceof Error ? err.message : String(err);
+    console.error("gsc-performance error", detail);
+    return new Response(
+      JSON.stringify({ error: "Failed to fetch Search Console data. Please try again later." }),
+      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+    );
   }
 });
