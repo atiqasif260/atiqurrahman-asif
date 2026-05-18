@@ -1,0 +1,62 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Daily at 06:00 UTC — catches CVEs published after the last deploy
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+# Email alerts: GitHub automatically emails the account owner
+# (atiq.asif260@gmail.com) whenever a workflow run on the default branch
+# fails or a scheduled run fails. Confirm notifications are enabled at
+# https://github.com/settings/notifications → "Actions".
+
+jobs:
+  dependencies:
+    name: npm audit (deps)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install dependencies (no scripts)
+        run: bun install --frozen-lockfile --ignore-scripts
+      - name: Audit for high/critical vulnerabilities
+        run: |
+          # bun does not yet ship `audit`; fall back to npm audit against
+          # the lockfile derived from package.json.
+          npx --yes better-npm-audit audit --level high
+
+  secrets:
+    name: gitleaks (secret scan)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Fail the run on any leaked secret finding.
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: "true"
+
+  filesystem:
+    name: Trivy (filesystem + config)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Trivy
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+          ignore-unfixed: true
+          scanners: vuln,secret,misconfig
+          format: table
