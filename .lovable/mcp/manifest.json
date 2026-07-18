@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "sdk_version": "0.23.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://lddsmrmonowemkmkdnfq.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "atiq-portfolio-mcp",
+      "version": "0.1.0",
+      "title": "Atiq Portfolio MCP"
+    },
+    "tools": [
+      {
+        "name": "get_profile",
+        "title": "Get profile",
+        "description": "Return Atiqur Rahman Asif's professional profile summary, contact info, and skills.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_experience",
+        "title": "List experience",
+        "description": "Return Atiqur Rahman Asif's professional experience history.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_education",
+        "title": "List education",
+        "description": "Return Atiqur Rahman Asif's education and certifications.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "send_message",
+        "title": "Send a message",
+        "description": "Record a message from the signed-in user for Atiq. Useful for AI clients relaying an intro or opportunity.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Short subject line."
+            },
+            "body": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The message body."
+            }
+          },
+          "required": [
+            "subject",
+            "body"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
