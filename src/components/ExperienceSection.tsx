@@ -1,31 +1,4 @@
-const experiences = [
-  {
-    period: "04/2023 — Present",
-    title: "Executive, IT Department",
-    company: "Ztrios Technologies LTD",
-    tasks: [
-      "System Administration: Install, configure, and maintain networks and software systems",
-      "Strategic Planning: Align IT initiatives with business goals and develop strategies",
-      "Security & Data Integrity: Implement and manage security policies & data backups",
-      "Technical Support: Resolve user hardware/software issues and provide technical assistance",
-      "Vendor Management: Negotiate contracts and collaborate with external vendors",
-      "Budgeting & Reporting: Determine IT equipment needs and manage the budget",
-      "Project Management: Lead IT projects, such as system upgrades or migrations",
-    ],
-  },
-  {
-    period: "02/2022 — 03/2023",
-    title: "Jr. Executive, IT Department",
-    company: "Circle Network",
-    tasks: [
-      "System Administration: Install, configure, and maintain networks and software systems",
-      "Technical Support: Networking (LAN/WAN), server management, and security protocols",
-      "Security & Data Integrity: Implement and manage security policies & data backups",
-      "Technical Support: Resolve user hardware/software issues and provide technical assistance",
-      "Budgeting & Reporting: Determine IT equipment needs and manage the budget",
-    ],
-  },
-];
+import { experiences } from "@/lib/experience";
 
 const ExperienceSection = () => {
   return (
@@ -40,7 +13,14 @@ const ExperienceSection = () => {
                 <span className="hidden sm:block w-1 h-1 rounded-full bg-primary" />
                 <span className="text-sm text-muted-foreground">{exp.company}</span>
               </div>
+              {exp.group && <p className="text-sm text-muted-foreground mb-2">{exp.group}</p>}
               <h3 className="text-xl font-bold mb-3">{exp.title}</h3>
+              {exp.endDate === null && (
+                <p className="text-sm text-primary mb-4">Quality Management System · Joined 10 September 2026</p>
+              )}
+              {exp.suggestedResponsibilities && (
+                <h4 className="text-sm font-semibold mb-3">QMS focus areas</h4>
+              )}
               <ul className="space-y-2">
                 {exp.tasks.map((task, i) => (
                   <li key={i} className="text-sm text-muted-foreground flex gap-2">

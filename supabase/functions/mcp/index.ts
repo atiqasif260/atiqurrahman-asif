@@ -8,6 +8,60 @@ import { auth, defineMcp } from "npm:@lovable.dev/mcp-js@0.23.0";
 // src/lib/mcp/tools/get-profile.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z } from "npm:zod@^4.4.3";
+
+// src/lib/experience.ts
+var experiences = [
+  {
+    period: "09/2026 \u2014 Present",
+    startDate: "2026-09-10",
+    endDate: null,
+    title: "Junior Executive, QMS Department",
+    company: "A ONE POLAR LIMITED",
+    group: "A Concern of Micro Fibre Group",
+    tasks: [
+      "Quality Documentation: Support controlled procedures, work instructions, inspection forms, and quality records",
+      "Process & Product Quality: Assist with recording production checks against approved specifications and customer requirements",
+      "Nonconformity & Corrective Action: Document quality deviations, escalate issues, and support corrective-action follow-up",
+      "Audit Support: Organize quality records and assist with internal audit preparation and findings follow-up",
+      "Quality Reporting: Compile inspection results, defect data, and recurring issue trends for review",
+      "Continuous Improvement: Support quality awareness and coordinate with production teams on process improvements"
+    ],
+    suggestedResponsibilities: true
+  },
+  {
+    period: "04/2023 \u2014 08/2026",
+    startDate: "2023-04",
+    endDate: "2026-08",
+    title: "Executive, IT Department",
+    company: "Ztrios Technologies LTD",
+    tasks: [
+      "System Administration: Install, configure, and maintain networks and software systems",
+      "Strategic Planning: Align IT initiatives with business goals and develop strategies",
+      "Security & Data Integrity: Implement and manage security policies & data backups",
+      "Technical Support: Resolve user hardware/software issues and provide technical assistance",
+      "Vendor Management: Negotiate contracts and collaborate with external vendors",
+      "Budgeting & Reporting: Determine IT equipment needs and manage the budget",
+      "Project Management: Lead IT projects, such as system upgrades or migrations"
+    ]
+  },
+  {
+    period: "02/2022 \u2014 03/2023",
+    startDate: "2022-02",
+    endDate: "2023-03",
+    title: "Jr. Executive, IT Department",
+    company: "Circle Network",
+    tasks: [
+      "System Administration: Install, configure, and maintain networks and software systems",
+      "Technical Support: Networking (LAN/WAN), server management, and security protocols",
+      "Security & Data Integrity: Implement and manage security policies & data backups",
+      "Technical Support: Resolve user hardware/software issues and provide technical assistance",
+      "Budgeting & Reporting: Determine IT equipment needs and manage the budget"
+    ]
+  }
+];
+var currentExperience = experiences.find((experience) => experience.endDate === null);
+
+// src/lib/mcp/tools/get-profile.ts
 var get_profile_default = defineTool({
   name: "get_profile",
   title: "Get profile",
@@ -17,7 +71,13 @@ var get_profile_default = defineTool({
   handler: () => {
     const profile = {
       name: "Atiqur Rahman Asif",
-      roles: ["IT Professional", "Marketing Strategist"],
+      roles: ["Junior Executive, QMS Department", "IT Professional", "Marketing Strategist"],
+      currentEmployment: currentExperience ? {
+        company: currentExperience.company,
+        group: currentExperience.group,
+        title: currentExperience.title,
+        startDate: currentExperience.startDate
+      } : null,
       location: "Savar, Dhaka-1344, Bangladesh",
       email: "atiq.asif260@gmail.com",
       phone: "+880 1999 443965",
@@ -49,30 +109,11 @@ var list_experience_default = defineTool2({
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
-    const experience = [
-      {
-        period: "04/2023 \u2014 Present",
-        title: "Executive, IT Department",
-        company: "Ztrios Technologies LTD",
-        highlights: [
-          "System administration across networks and software",
-          "Strategic planning aligning IT with business goals",
-          "Security policies and data integrity",
-          "Vendor management and IT budgeting",
-          "Leading IT projects and system migrations"
-        ]
-      },
-      {
-        period: "02/2022 \u2014 03/2023",
-        title: "Jr. Executive, IT Department",
-        company: "Circle Network",
-        highlights: [
-          "LAN/WAN networking and server management",
-          "Security protocols and data backups",
-          "User hardware/software support"
-        ]
-      }
-    ];
+    const experience = experiences.map(({ tasks, suggestedResponsibilities, ...entry }) => ({
+      ...entry,
+      highlights: tasks,
+      ...suggestedResponsibilities ? { responsibilityContext: "Research-based QMS focus areas; not verified personal achievements." } : {}
+    }));
     return {
       content: [{ type: "text", text: JSON.stringify(experience, null, 2) }],
       structuredContent: { experience }

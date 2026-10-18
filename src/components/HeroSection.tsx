@@ -16,10 +16,10 @@ const HeroSection = () => {
             </p>
             <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-2 text-glow">
               Atiqur Rahman Asif
-              <span className="block text-3xl md:text-5xl mt-3 font-semibold gradient-text-animated">IT Professional & Marketing Strategist</span>
+              <span className="block text-3xl md:text-5xl mt-3 font-semibold gradient-text-animated">QMS Junior Executive & IT Professional</span>
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-              IT Professional & Marketing Strategist with 3+ years of experience in system administration, cybersecurity, SAP, and brand strategy. B.Tech in Computer Science & Engineering.
+              Junior Executive in the QMS Department at A ONE POLAR LIMITED, a concern of Micro Fibre Group. IT Professional & Marketing Strategist with 3+ years of experience in system administration, cybersecurity, SAP, and brand strategy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <a href="#contact" className="relative px-8 py-3 gradient-bg rounded-full font-semibold text-sm text-primary-foreground glow-shadow-strong hover:scale-105 hover:opacity-95 transition-all overflow-hidden group">

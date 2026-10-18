@@ -17,7 +17,14 @@ export const experiences: ProfessionalExperience[] = [
     title: "Junior Executive, QMS Department",
     company: "A ONE POLAR LIMITED",
     group: "A Concern of Micro Fibre Group",
-    tasks: [],
+    tasks: [
+      "Quality Documentation: Support controlled procedures, work instructions, inspection forms, and quality records",
+      "Process & Product Quality: Assist with recording production checks against approved specifications and customer requirements",
+      "Nonconformity & Corrective Action: Document quality deviations, escalate issues, and support corrective-action follow-up",
+      "Audit Support: Organize quality records and assist with internal audit preparation and findings follow-up",
+      "Quality Reporting: Compile inspection results, defect data, and recurring issue trends for review",
+      "Continuous Improvement: Support quality awareness and coordinate with production teams on process improvements",
+    ],
     suggestedResponsibilities: true,
   },
   {
