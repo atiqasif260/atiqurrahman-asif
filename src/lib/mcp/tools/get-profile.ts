@@ -1,5 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
+import { currentExperience } from "../../experience";
 
 export default defineTool({
   name: "get_profile",
@@ -10,7 +11,13 @@ export default defineTool({
   handler: () => {
     const profile = {
       name: "Atiqur Rahman Asif",
-      roles: ["IT Professional", "Marketing Strategist"],
+      roles: ["Junior Executive, QMS Department", "IT Professional", "Marketing Strategist"],
+      currentEmployment: currentExperience ? {
+        company: currentExperience.company,
+        group: currentExperience.group,
+        title: currentExperience.title,
+        startDate: currentExperience.startDate,
+      } : null,
       location: "Savar, Dhaka-1344, Bangladesh",
       email: "atiq.asif260@gmail.com",
       phone: "+880 1999 443965",
