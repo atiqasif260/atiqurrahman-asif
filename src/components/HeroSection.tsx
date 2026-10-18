@@ -30,10 +30,23 @@ const HeroSection = () => {
                 Download CV
               </a>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground justify-center lg:justify-start">
-              <span className="flex items-center gap-2"><Mail size={14} className="text-primary" /> atiq.asif260@gmail.com</span>
-              <span className="flex items-center gap-2"><MapPin size={14} className="text-primary" /> Savar, Dhaka, Bangladesh</span>
+            <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground justify-center lg:justify-start mb-10">
+              <a href="mailto:atiq.asif260@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors justify-center"><Mail size={14} className="text-primary" /> atiq.asif260@gmail.com</a>
+              <span className="flex items-center gap-2 justify-center"><MapPin size={14} className="text-primary" /> Savar, Dhaka, Bangladesh</span>
             </div>
+            <dl className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+              {[
+                { v: "3+", l: "Years in IT" },
+                { v: "3", l: "Certifications" },
+                { v: "3.75", l: "CGPA (B.Tech)" },
+              ].map((s) => (
+                <div key={s.l} className="glass-card rounded-xl px-3 py-4 text-center">
+                  <dt className="sr-only">{s.l}</dt>
+                  <dd className="text-2xl font-bold gradient-text">{s.v}</dd>
+                  <p className="text-[11px] text-muted-foreground mt-1">{s.l}</p>
+                </div>
+              ))}
+            </dl>
           </div>
           <div className="lg:w-2/5 flex justify-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
             <div className="relative" style={{ animation: "float-slow 6s ease-in-out infinite" }}>
