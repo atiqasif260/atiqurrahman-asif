@@ -16,7 +16,7 @@ const ExperienceSection = () => {
               {exp.group && <p className="text-sm text-muted-foreground mb-2">{exp.group}</p>}
               <h3 className="text-xl font-bold mb-3">{exp.title}</h3>
               {exp.endDate === null && (
-                <p className="text-sm text-primary mb-4">Quality Management System · Joined 10 September 2026</p>
+                <p className="text-sm text-primary mb-4">Quality Management System</p>
               )}
               {exp.suggestedResponsibilities && (
                 <h4 className="text-sm font-semibold mb-3">QMS focus areas</h4>

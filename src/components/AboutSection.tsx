@@ -13,7 +13,7 @@ const AboutSection = () => {
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">About <span className="gradient-text-animated">Me</span></h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-16">
-          Currently working as a Junior Executive in the Quality Management System (QMS) Department at A ONE POLAR LIMITED, a concern of Micro Fibre Group, since 10 September 2026. Bringing 3+ years of IT experience from Ztrios Technologies LTD and Circle Network, alongside a B.Tech in Computer Science & Engineering and a foundation in marketing. Combining technical knowledge with quality-focused processes, clear communication, and cross-functional collaboration.
+          Currently working as a Junior Executive in the Quality Management System (QMS) Department at A ONE POLAR LIMITED, a concern of Micro Fibre Group. Bringing 3+ years of IT experience from Ztrios Technologies LTD and Circle Network, alongside a B.Tech in Computer Science & Engineering and a foundation in marketing. Combining technical knowledge with quality-focused processes, clear communication, and cross-functional collaboration.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {highlights.map(({ icon: Icon, title, desc }) => (
