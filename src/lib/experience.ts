@@ -14,7 +14,7 @@ export const experiences: ProfessionalExperience[] = [
     period: "09/2026 — Present",
     startDate: "2026-09-10",
     endDate: null,
-    title: "Junior Executive, QMS Department",
+    title: "Junior Executive – Quality Management System (QMS)",
     company: "A ONE POLAR LIMITED",
     group: "A Concern of Micro Fibre Group",
     tasks: [

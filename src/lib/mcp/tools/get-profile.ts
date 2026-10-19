@@ -11,7 +11,7 @@ export default defineTool({
   handler: () => {
     const profile = {
       name: "Atiqur Rahman Asif",
-      roles: ["Junior Executive, QMS Department", "IT Professional", "Marketing Strategist"],
+      roles: [currentExperience?.title ?? "QMS Professional", "IT Professional", "Marketing Strategist"],
       currentEmployment: currentExperience ? {
         company: currentExperience.company,
         group: currentExperience.group,

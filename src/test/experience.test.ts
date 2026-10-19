@@ -6,7 +6,7 @@ describe("professional employment history", () => {
     expect(experiences.filter((experience) => experience.endDate === null)).toHaveLength(1);
     expect(currentExperience?.company).toBe("A ONE POLAR LIMITED");
     expect(currentExperience?.group).toBe("A Concern of Micro Fibre Group");
-    expect(currentExperience?.title).toBe("Junior Executive, QMS Department");
+    expect(currentExperience?.title).toBe("Junior Executive – Quality Management System (QMS)");
   });
 
   it("records the QMS role starting on 10 September 2026", () => {
