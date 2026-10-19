@@ -1,4 +1,4 @@
-import { Monitor, Shield, Brain, Users, Globe, Cpu, Database, Languages, MessageSquare, Target } from "lucide-react";
+import { Monitor, Shield, Brain, Users, Globe, Cpu, Database, Languages, MessageSquare, Target, ClipboardCheck } from "lucide-react";
 
 const technicalSkills = [
   { icon: Monitor, label: "System Administration", desc: "Networks, servers, software" },
@@ -7,6 +7,7 @@ const technicalSkills = [
   { icon: Database, label: "SAP", desc: "Administration, ERP, MM, SD" },
   { icon: Globe, label: "Microsoft Office", desc: "Excel, PowerPoint, Outlook" },
   { icon: Brain, label: "Data Analysis", desc: "Digital safety & cyber resilience" },
+  { icon: ClipboardCheck, label: "QMS", desc: "Documentation control, audit support, corrective-action tracking & Excel-based quality KPI reporting" },
 ];
 
 const professionalSkills = [
