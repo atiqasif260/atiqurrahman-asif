@@ -15,7 +15,7 @@ var experiences = [
     period: "09/2026 \u2014 Present",
     startDate: "2026-09-10",
     endDate: null,
-    title: "Junior Executive, QMS Department",
+    title: "Junior Executive \u2013 Quality Management System (QMS)",
     company: "A ONE POLAR LIMITED",
     group: "A Concern of Micro Fibre Group",
     tasks: [
@@ -71,7 +71,7 @@ var get_profile_default = defineTool({
   handler: () => {
     const profile = {
       name: "Atiqur Rahman Asif",
-      roles: ["Junior Executive, QMS Department", "IT Professional", "Marketing Strategist"],
+      roles: [currentExperience?.title ?? "QMS Professional", "IT Professional", "Marketing Strategist"],
       currentEmployment: currentExperience ? {
         company: currentExperience.company,
         group: currentExperience.group,

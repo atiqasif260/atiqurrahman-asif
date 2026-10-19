@@ -24,7 +24,7 @@ const SkillsSection = () => {
         <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">Computer & Technical Skills</p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-16">
           {technicalSkills.map(({ icon: Icon, label, desc }) => (
-            <div key={label} className="glass-card rounded-xl p-6 text-center hover:border-primary/30 transition-colors group">
+            <div key={label} className="glass-card rounded-xl p-4 sm:p-6 text-center hover:border-primary/30 transition-colors group">
               <Icon size={28} className="text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-sm mb-1">{label}</h3>
               <p className="text-xs text-muted-foreground">{desc}</p>
@@ -35,7 +35,7 @@ const SkillsSection = () => {
         <h3 className="text-2xl font-bold text-center mb-8">Professional <span className="gradient-text-animated">Skills</span></h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
           {professionalSkills.map(({ icon: Icon, label, desc }) => (
-            <div key={label} className="glass-card rounded-xl p-6 text-center hover:border-primary/30 transition-colors group">
+            <div key={label} className="glass-card rounded-xl p-4 sm:p-6 text-center hover:border-primary/30 transition-colors group">
               <Icon size={28} className="text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold text-sm mb-1">{label}</h3>
               <p className="text-xs text-muted-foreground">{desc}</p>

@@ -1,5 +1,5 @@
-# Experience update
+# Portfolio polish
 
-- [x] Research appropriate QMS responsibility areas.
-- [x] Add the current employer and update Ztrios dates throughout the portfolio and agent responses.
-- [x] Test employment dates and verify the visible experience section.
+- [x] Update requested titles and add the QMS highlight.
+- [x] Polish layout, accessibility, motion, and visual consistency across the portfolio.
+- [x] Verify navigation, CV, contact links, and desktop/mobile layout; run experience tests.

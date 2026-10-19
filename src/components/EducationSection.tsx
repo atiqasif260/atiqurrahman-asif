@@ -30,7 +30,7 @@ const EducationSection = () => {
         </h2>
         <div className="max-w-3xl mx-auto space-y-6">
           {education.map((edu) => (
-            <div key={edu.year} className="glass-card rounded-xl p-8 hover:border-primary/30 transition-colors flex gap-6 items-start">
+            <div key={edu.year} className="glass-card rounded-xl p-5 sm:p-8 hover:border-primary/30 transition-colors flex gap-4 sm:gap-6 items-start">
               <div className="w-12 h-12 shrink-0 rounded-xl gradient-bg-subtle flex items-center justify-center">
                 <GraduationCap size={22} className="text-primary" />
               </div>

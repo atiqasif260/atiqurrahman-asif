@@ -24,6 +24,12 @@ const AnimatedBackground = () => {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motion.matches) return;
+    const tokens = getComputedStyle(document.documentElement);
+    const primary = tokens.getPropertyValue("--primary").trim();
+    const accent = tokens.getPropertyValue("--accent").trim();
+    const color = (token: string, alpha: number) => `hsl(${token} / ${alpha})`;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -59,21 +65,6 @@ const AnimatedBackground = () => {
       const t = timeRef.current;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Subtle gradient background pulse
-      const grad = ctx.createRadialGradient(
-        canvas.width * 0.5 + Math.sin(t * 0.3) * 100,
-        canvas.height * 0.5 + Math.cos(t * 0.2) * 80,
-        0,
-        canvas.width * 0.5,
-        canvas.height * 0.5,
-        canvas.width * 0.7
-      );
-      grad.addColorStop(0, `hsla(200, 80%, 20%, ${0.03 + Math.sin(t * 0.5) * 0.01})`);
-      grad.addColorStop(0.5, `hsla(260, 60%, 15%, ${0.02 + Math.sin(t * 0.3) * 0.01})`);
-      grad.addColorStop(1, "hsla(0, 0%, 0%, 0)");
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
       const nodes = nodesRef.current;
       const mouse = mouseRef.current;
 
@@ -88,7 +79,7 @@ const AnimatedBackground = () => {
         const dx = n.x - mouse.x;
         const dy = n.y - mouse.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 200) {
+        if (dist > 0 && dist < 200) {
           const force = (200 - dist) / 200;
           n.vx += (dx / dist) * force * 0.03;
           n.vy += (dy / dist) * force * 0.03;
@@ -116,9 +107,9 @@ const AnimatedBackground = () => {
 
             // Connection line
             const lineGrad = ctx.createLinearGradient(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
-            lineGrad.addColorStop(0, `hsla(187, 92%, 55%, ${alpha * 0.6})`);
-            lineGrad.addColorStop(0.5, `hsla(220, 90%, 60%, ${alpha})`);
-            lineGrad.addColorStop(1, `hsla(260, 80%, 55%, ${alpha * 0.6})`);
+            lineGrad.addColorStop(0, color(primary, alpha * 0.6));
+            lineGrad.addColorStop(0.5, color(accent, alpha));
+            lineGrad.addColorStop(1, color(primary, alpha * 0.6));
             
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -131,7 +122,7 @@ const AnimatedBackground = () => {
             if (dist < maxDist * 0.7) {
               ctx.beginPath();
               ctx.arc(mx, my, 1.2, 0, Math.PI * 2);
-              ctx.fillStyle = `hsla(187, 92%, 70%, ${alpha * 2.5})`;
+              ctx.fillStyle = color(primary, alpha * 2.5);
               ctx.fill();
             }
           }
@@ -141,21 +132,21 @@ const AnimatedBackground = () => {
       // Draw nodes with glow
       for (const n of nodes) {
         const pulse = Math.sin(t * n.pulseSpeed * 60 + n.pulsePhase) * 0.3 + 0.7;
-        const hue = 187 + n.layer * 30; // cyan -> blue -> purple layers
+        const hue = n.layer === 1 ? accent : primary;
         const alpha = n.opacity * pulse;
 
         // Outer glow
         const glowSize = n.size * 4;
         const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, glowSize);
-        glow.addColorStop(0, `hsla(${hue}, 90%, 60%, ${alpha * 0.3})`);
-        glow.addColorStop(1, `hsla(${hue}, 90%, 60%, 0)`);
+        glow.addColorStop(0, color(hue, alpha * 0.3));
+        glow.addColorStop(1, color(hue, 0));
         ctx.fillStyle = glow;
         ctx.fillRect(n.x - glowSize, n.y - glowSize, glowSize * 2, glowSize * 2);
 
         // Core node
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.size * pulse, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${hue}, 92%, 65%, ${alpha})`;
+        ctx.fillStyle = color(hue, alpha);
         ctx.fill();
       }
 
@@ -174,27 +165,36 @@ const AnimatedBackground = () => {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `hsla(187, 95%, 65%, 0.08)`;
+            ctx.strokeStyle = color(primary, 0.08);
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
       }
 
-      animationRef.current = requestAnimationFrame(animate);
+      if (!document.hidden && !motion.matches) animationRef.current = requestAnimationFrame(animate);
     };
 
     animate();
+    const resume = () => {
+      cancelAnimationFrame(animationRef.current);
+      if (!document.hidden && !motion.matches) animate();
+      else ctx.clearRect(0, 0, canvas.width, canvas.height);
+    };
+    document.addEventListener("visibilitychange", resume);
+    motion.addEventListener("change", resume);
 
     return () => {
       cancelAnimationFrame(animationRef.current);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouse);
+      document.removeEventListener("visibilitychange", resume);
+      motion.removeEventListener("change", resume);
     };
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none" style={{ opacity: 0.7 }}>
+    <div className="fixed inset-0 z-0 pointer-events-none opacity-70" aria-hidden="true">
       <canvas ref={canvasRef} className="w-full h-full" />
     </div>
   );
