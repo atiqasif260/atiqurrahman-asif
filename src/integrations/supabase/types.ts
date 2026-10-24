@@ -14,13 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      cv_download_counters: {
+        Row: {
+          counter_key: string
+          download_count: number
+          last_incremented_at: string
+        }
+        Insert: {
+          counter_key: string
+          download_count?: number
+          last_incremented_at?: string
+        }
+        Update: {
+          counter_key?: string
+          download_count?: number
+          last_incremented_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      increment_cv_downloads: { Args: never; Returns: undefined }
     }
     Enums: {
       [_ in never]: never
