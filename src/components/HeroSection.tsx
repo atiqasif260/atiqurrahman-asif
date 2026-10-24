@@ -24,7 +24,7 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <Button asChild size="lg" className="gradient-bg rounded-full font-semibold glow-shadow"><a href="#contact">Let's Talk <ArrowUpRight /></a></Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full bg-background/30 hover:bg-secondary hover:text-foreground"><a href="/Atiq_Asif_CV.pdf" target="_blank" rel="noopener noreferrer">Download CV <Download /></a></Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full bg-background/30 hover:bg-secondary hover:text-foreground"><a href="/Atiq_Asif_CV.pdf" download="Atiqur-Rahman-Asif-CV.pdf" rel="noopener noreferrer">Download CV <Download /></a></Button>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground justify-center lg:justify-start mb-10">
               <a href="mailto:atiq.asif260@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors justify-center"><Mail size={14} className="text-primary" /> atiq.asif260@gmail.com</a>
