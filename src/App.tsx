@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound.tsx";
 import SeoDashboard from "./pages/SeoDashboard.tsx";
 import Login from "./pages/Login.tsx";
 import OAuthConsent from "./pages/OAuthConsent.tsx";
+import CvStats from "./pages/CvStats.tsx";
 
 const queryClient = new QueryClient();
 
