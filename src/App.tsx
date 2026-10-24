@@ -23,6 +23,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
           <Route path="/seo-dashboard" element={<SeoDashboard />} />
+          <Route path="/cv-stats" element={<CvStats />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
