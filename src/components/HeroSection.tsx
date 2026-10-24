@@ -1,7 +1,17 @@
 import { ArrowUpRight, Download, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
 import heroBg from "@/assets/hero-bg.jpg";
 import profilePhoto from "@/assets/profile-photo.jpg";
+
+const trackCvDownload = () => {
+  // Fire-and-forget: counts the download without awaiting, so the file
+  // download itself is never delayed. Only an aggregate total is stored —
+  // no IP address, user agent, or any other visitor data.
+  void supabase.rpc("increment_cv_downloads").then(({ error }) => {
+    if (error) console.debug("CV download count failed", error.message);
+  });
+};
 
 const HeroSection = () => {
   return (
@@ -24,7 +34,7 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <Button asChild size="lg" className="gradient-bg rounded-full font-semibold glow-shadow"><a href="#contact">Let's Talk <ArrowUpRight /></a></Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full bg-background/30 hover:bg-secondary hover:text-foreground"><a href="/Atiq_Asif_CV.pdf" download="Atiqur-Rahman-Asif-CV.pdf" rel="noopener noreferrer">Download CV <Download /></a></Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full bg-background/30 hover:bg-secondary hover:text-foreground"><a href="/Atiq_Asif_CV.pdf" download="Atiqur-Rahman-Asif-CV.pdf" rel="noopener noreferrer" onClick={trackCvDownload}>Download CV <Download /></a></Button>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground justify-center lg:justify-start mb-10">
               <a href="mailto:atiq.asif260@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors justify-center"><Mail size={14} className="text-primary" /> atiq.asif260@gmail.com</a>

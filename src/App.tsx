@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound.tsx";
 import SeoDashboard from "./pages/SeoDashboard.tsx";
 import Login from "./pages/Login.tsx";
 import OAuthConsent from "./pages/OAuthConsent.tsx";
+import CvStats from "./pages/CvStats.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
           <Route path="/seo-dashboard" element={<SeoDashboard />} />
+          <Route path="/cv-stats" element={<CvStats />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
