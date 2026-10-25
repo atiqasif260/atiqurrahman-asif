@@ -8,6 +8,13 @@
       "when": 1792828065156,
       "tag": "0000_cv_download_counter",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792910266965,
+      "tag": "0001_cv_download_daily",
+      "breakpoints": true
     }
   ]
 }

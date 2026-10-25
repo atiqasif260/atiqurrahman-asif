@@ -32,6 +32,21 @@ export type Database = {
         }
         Relationships: []
       }
+      cv_download_daily: {
+        Row: {
+          day: string
+          download_count: number
+        }
+        Insert: {
+          day: string
+          download_count?: number
+        }
+        Update: {
+          day?: string
+          download_count?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
