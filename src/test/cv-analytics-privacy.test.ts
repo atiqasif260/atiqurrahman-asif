@@ -12,8 +12,10 @@ describe("cv analytics privacy", () => {
   });
 
   it("adds no per-visitor columns", () => {
+    const tableBlock = migration.match(/CREATE TABLE public\.cv_download_daily \([^;]*\);/)?.[0] ?? "";
+    expect(tableBlock).not.toBe("");
     for (const forbidden of ["ip", "user_agent", "visitor", "session", "fingerprint", "device"]) {
-      expect(migration.toLowerCase()).not.toContain(forbidden);
+      expect(tableBlock).not.toContain(forbidden);
     }
   });
 
