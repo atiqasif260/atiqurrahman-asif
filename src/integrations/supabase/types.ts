@@ -47,6 +47,39 @@ export type Database = {
         }
         Relationships: []
       }
+      recruiter_leads: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          message: string
+          organization: string
+          role: string
+          slack_notified: boolean
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          message: string
+          organization: string
+          role?: string
+          slack_notified?: boolean
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          message?: string
+          organization?: string
+          role?: string
+          slack_notified?: boolean
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
