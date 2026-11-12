@@ -15,6 +15,13 @@
       "when": 1792910266965,
       "tag": "0001_cv_download_daily",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794461352694,
+      "tag": "0002_create_recruiter_leads",
+      "breakpoints": true
     }
   ]
 }
